@@ -52,12 +52,11 @@ public class Patient implements Serializable {
     
     /////////////////////////////////////////////////////////
     
-    public Patient() {		
-	}
-
-	public Patient(int id, String nom, String prenom, String sexe, Date dateNaissance, String numeroTelephone,
+  
+    public Patient() {}
+	public Patient( int id ,String nom, String prenom, String sexe, Date dateNaissance, String numeroTelephone,
 			String adresse) {
-		this.id = id;
+		this.id=id ;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;

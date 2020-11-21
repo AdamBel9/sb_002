@@ -16,20 +16,24 @@ import dz.ibnrochd.master14.dao.RendezVousRepositroy;
 import dz.ibnrochd.master14.dao.TraitementRepository;
 import dz.ibnrochd.master14.model.Consultation;
 import dz.ibnrochd.master14.model.Patient;
+import dz.ibnrochd.master14.service.PatientService;
 
 @SpringBootApplication
 public class Sb002Application implements CommandLineRunner {
 	
+	/*
+	 * @Autowired PatientRepository patientRepository;
+	 * 
+	 * @Autowired RendezVousRepositroy rendezVousRepository ;
+	 * 
+	 * @Autowired TraitementRepository traitementRepo ;
+	 * 
+	 * @Autowired ConsultationRepository consultationRepository ;
+	 * 
+	 * @Autowired LigneConsultationRepository ligneConsultationRepository ;
+	 */
 	@Autowired
-	PatientRepository patientRepository;
-	@Autowired
-	RendezVousRepositroy rendezVousRepository ;
-	@Autowired
-	TraitementRepository traitementRepo ;
-	@Autowired
-	ConsultationRepository consultationRepository ;
-	@Autowired
-	LigneConsultationRepository ligneConsultationRepository ;
+	PatientService p ;
 	
 	
 	// TODO : déclarer les autres repository de la même façon que PatientRepository
@@ -41,6 +45,13 @@ public class Sb002Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
+		
+		//Patient pe = new Patient(9, "Belabessi", "Aicha", "f", new Date(20,01,10), "58456866", "Blida");
+		//p.creePatient(10,"Belabessi","wassila","f",new Date(98,01,01),"025456985","Blida");
+		//p.listToutPatient().forEach(p -> System.out.println(p));
+		//p.supprimerPatient(10);
 		/*
 		 * // TODO : récupérer la liste de tous les patients puis afficher leurs noms
 		 * System.out.println("la liste de tous les patients");

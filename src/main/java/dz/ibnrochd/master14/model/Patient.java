@@ -103,8 +103,9 @@ public class Patient implements Serializable {
 		return dateNaissance;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
+	@SuppressWarnings("deprecation")
+	public void setDateNaissance(int year ,int month ,int day) {
+		this.dateNaissance = new Date(year , month , day);
 	}
 
 	public String getNumeroTelephone() {
@@ -137,6 +138,13 @@ public class Patient implements Serializable {
 
 	public void setRendezVous(List<RendezVous> rendezVous) {
 		this.rendezVous = rendezVous;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Nom: "+ nom + "\n"+
+		"Prenom: "+ prenom + "\n"
+		;
 	}
 
 }

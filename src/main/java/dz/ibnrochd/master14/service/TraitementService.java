@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dz.ibnrochd.master14.business.ITraitementService;
 import dz.ibnrochd.master14.dao.TraitementRepository;
 import dz.ibnrochd.master14.model.Traitement;
 
 @Service
-public class TraitementService {
+public class TraitementService implements ITraitementService {
 
 	//Injection
 	TraitementRepository traitementRepository ;

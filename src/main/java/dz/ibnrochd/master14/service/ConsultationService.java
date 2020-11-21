@@ -6,13 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dz.ibnrochd.master14.business.IConsultationService;
 import dz.ibnrochd.master14.dao.ConsultationRepository;
 import dz.ibnrochd.master14.dao.PatientRepository;
 import dz.ibnrochd.master14.model.Consultation;
 import dz.ibnrochd.master14.model.Patient;
 
 @Service
-public class ConsultationService {
+public class ConsultationService implements IConsultationService{
 
 	
 //Injection 

@@ -1,6 +1,9 @@
 package dz.ibnrochd.master14.model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +17,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.datetime.DateFormatter;
+
+import ch.qos.logback.classic.pattern.DateConverter;
 
 @Entity
 @Table(schema = "cabinet", name = "patient")
@@ -37,6 +44,8 @@ public class Patient implements Serializable {
     @Column(name = "date_naissance", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
+    
+    
 
     @Column(name = "numero_telephone", nullable = false, length = 255)
     private String numeroTelephone;
@@ -54,13 +63,14 @@ public class Patient implements Serializable {
     
   
     public Patient() {}
-	public Patient( int id ,String nom, String prenom, String sexe, Date dateNaissance, String numeroTelephone,
-			String adresse) {
+	public Patient( int id ,String nom, String prenom, String sexe, String dateNaissance, String numeroTelephone,
+			String adresse) throws ParseException {
+		SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
 		this.id=id ;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;
-		this.dateNaissance = dateNaissance;
+		this.dateNaissance = format1.parse(dateNaissance);
 		this.numeroTelephone = numeroTelephone;
 		this.adresse = adresse;
 	}
@@ -103,9 +113,9 @@ public class Patient implements Serializable {
 		return dateNaissance;
 	}
 
-	@SuppressWarnings("deprecation")
-	public void setDateNaissance(int year ,int month ,int day) {
-		this.dateNaissance = new Date(year , month , day);
+	public void setDateNaissance(String date ) throws ParseException {
+		SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateNaissance = format1.parse(date);
 	}
 
 	public String getNumeroTelephone() {

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Supprimier un Patient</title>
+</head>
+<body>
+<h1>Supprimier un Patient</h1>
+<a href="afficherListTraitement">Liste des Patient</a>
+<table border="1">
+<tr><th>ID</th><th>nom</th></tr>
+<tr th:each ="t :${traitement}">
+<td th:utext ="${t.id}"></td><td th:utext ="${t.nom}"></td>
+<td>
+<form th:action="@{supprimierTraitement}" method="post">
+                  <input type="hidden" name="id" th:value="${t.id}" />
+                  <input type="submit" value="Delete" class="btn btn-danger" />
+              </form>
+              </td>
+              </tr>
+</table>
+<br>
+<div th:if="${messageErreur}" th:utext="messageErreur" style="color:red;"></div>
+
+
+</body>
+</html>

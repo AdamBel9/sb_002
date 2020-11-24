@@ -24,21 +24,36 @@ public class PatientService implements IPatientService{
 	
 	//Methods CRUD
 	//Create patient
-	  public Patient creePatient( int id ,String nom, String prenom, String sexe, Date dateNaissance, String numeroTelephone,
-				String adresse) {
-		 return patientRepository.save(new Patient(id , nom,prenom,sexe,dateNaissance,numeroTelephone,adresse));
-	  }
+	  public Patient creePatient(Patient patient) {
+		 return patientRepository.save(patient);
+		  
+				 }
 	  
+					/*
+					 * //Update patient public Patient modfierPatient(Patient patient) { return
+					 * patientRepository.save(patient); }
+					 */
 	  //Read patient
 	  public List<Patient> listToutPatient(){
 		  return patientRepository.findAll();
 		  
 	  }
 	  
-	 public List<Patient> supprimerPatient(int id) {
+	  //Update patient
+	  public void misAJourPateint(Patient patient) {
+		  
+		patientRepository.save(patient);
+		  
+	  }
+	  
+	  //Delete patient
+	 public void supprimerPatient(int id ) {
 		 patientRepository.deleteById(id);
-		 return patientRepository.findAll();
+		
 		 
 	 }
+
+
+	
 		  
 }

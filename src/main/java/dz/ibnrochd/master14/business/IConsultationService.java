@@ -3,22 +3,22 @@ package dz.ibnrochd.master14.business;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+
 
 import dz.ibnrochd.master14.model.Consultation;
 import dz.ibnrochd.master14.model.Patient;
 
-@Service
+
 public interface IConsultationService {
 
 	//Create Consultation
-	public Consultation creeConsultation(int id, String motif, Date dateConsultation, Patient patient);
+	public Consultation creeConsultation(int id, String motif, Date dateConsultation, int idPatient);
 	
 	//Display all consultation
 	public List<Consultation> listConsultation();
 	
 	//Delete a Consultation 
-	public List<Consultation> supprimierConsultation(int id);
+	public void supprimierConsultation(int id);
 	
 	
 	

@@ -46,10 +46,14 @@ public class Sb002Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		//System.out.println(p.);
 		
-		
-		//Patient pe = new Patient(9, "Belabessi", "Aicha", "f", new Date(20,01,10), "58456866", "Blida");
-		//p.creePatient(10,"Belabessi","wassila","f",new Date(98,01,01),"025456985","Blida");
+		//Patient pe = new Patient(12, "Belabessi", "sisila", "f", "10/01/1990", "58456866", "Blida");
+		//p.creePatient(pe);
+		//Patient pe1 = new Patient(12, "Belabessi", "Adam", "m", "10/01/1990", "58456866", "Blida");
+		//p.creePatient(pe1);
+		//Patient pe2 = new Patient(12, "Belabessi", "Kaled", "m", "10/01/1990", "58456866", "Blida");
+		//p.creePatient(pe2);
 		//p.listToutPatient().forEach(p -> System.out.println(p));
 		//p.supprimerPatient(10);
 		/*

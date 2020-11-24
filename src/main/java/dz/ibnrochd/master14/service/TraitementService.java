@@ -22,17 +22,17 @@ public class TraitementService implements ITraitementService {
 		this.traitementRepository = traitementRepository;
 	}
 	
-	public Traitement creeTraitement(int id, String nom) {
-		return traitementRepository.save(new Traitement(id,nom));
+	public Traitement creeTraitement(Traitement traitement) {
+		return traitementRepository.save(traitement );
 	}
 	
 	public List<Traitement> listTraitement(){
 		return traitementRepository.findAll();
 	}
 	
-	public List<Traitement> supprimierTraitement(int id ){
+	public void supprimierTraitement(int id ){
 		traitementRepository.deleteById(id);
-		return traitementRepository.findAll();
+		
 		
 	}
 }

@@ -28,19 +28,21 @@ public class ConsultationService implements IConsultationService{
 		
 	}
 	//Method 
-	public Consultation creeConsultation(int id, String motif, Date dateConsultation, Patient patient) {
-		
-		Patient  pat= patientRepository.findByPatient(patient);
-		return consultationRepository.save(new Consultation(id ,motif , dateConsultation ,pat));
-		
-	}
 	
+	  public Consultation creeConsultation(int id, String motif, Date
+	  dateConsultation, int idPatient) {
+		  Patient patient = patientRepository.findById(idPatient).orElseThrow(()->new RuntimeException("Patient does not exist"));
+	  return consultationRepository.save(new Consultation (id , motif ,dateConsultation,patient));
+	
+	  
+	  }
+	 
 	public List<Consultation> listConsultation(){
 		return consultationRepository.findAll(); 
 	}
 	
-	public List<Consultation> supprimierConsultation(int id){
+	public void supprimierConsultation(int id){
 		consultationRepository.deleteById(id);
-		return consultationRepository.findAll();
+		
 	}
 }

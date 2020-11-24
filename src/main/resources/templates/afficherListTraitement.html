@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Afficher la list des Traitement</title>
+</head>
+<body>
+<h1>Liste des Traitement</h1>
+<a href="ajouterTraitement">Ajouter un traitement</a><br>
+<a href="supprimierTraitement">Supprimier un traitement</a>
+<br>
+<br>
+<div>
+<table border="1">
+<tr><th>id</th><th>nom</th></tr>
+<tr th:each ="t :${listeT}">
+<td th:utext ="${t.id}"></td><td th:utext ="${t.nom}"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head >
 <meta charset="UTF-8">
+
 <title>Ajouter une Patient</title>
 </head>
-<body>
+
+<body >
+
 <h1>Ajouter un patient</h1>
 <a href="afficherListPatient">Liste des Patient</a><br>
 <a href="supprimierPatient">Supprimier un Patient</a>
@@ -20,7 +23,6 @@ Adresse : <input type="text" th:field="*{adresse}"/><br>
 </form>
 <br>
 <div th:if="${messageErreur}" th:utext="messageErreur" style="color:red;"></div>
-
-
+<div th:fragment="x"> adam</div>
 </body>
 </html>

@@ -5,14 +5,33 @@
 <title>Afficher la list des Traitement</title>
 </head>
 <body>
-<h1>Liste des Traitement</h1>
-<a href="ajouterTraitement">Ajouter un traitement</a><br>
-<a href="supprimierTraitement">Supprimier un traitement</a>
+<span th:text="#{lang.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="fr" th:text="#{lang.fr}"></option>
+    <option value="ar" th:text="#{lang.ar}"></option>
+</select>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#locales").change(function () {
+        var selectedOption = $('#locales').val();
+        if (selectedOption != ''){
+            window.location.replace('http://localhost:8080/afficherListTraitement?lang=' + selectedOption);
+        }
+    });
+});
+</script>
+<h1 th:text="#{lsT}"></h1>
+<a href="ajouterTraitement" th:text="#{AunT}"></a><br>
+<a href="supprimierTraitement" th:text="#{SunT}"></a>
 <br>
 <br>
 <div>
 <table border="1">
-<tr><th>id</th><th>nom</th></tr>
+<tr><th th:text="#{id}"></th><th th:text="#{nmT}"></th></tr>
 <tr th:each ="t :${listeT}">
 <td th:utext ="${t.id}"></td><td th:utext ="${t.nom}"></td>
 </tr>

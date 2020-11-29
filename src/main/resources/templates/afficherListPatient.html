@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head  >
 <meta charset="UTF-8">
 <title>Afficher la list des patients</title>
 </head>
-<body>
-<h1>Liste des patients</h1>
-<a href="afficherListTraitement">Liste des Traitements</a><br>
-<a href="ajouterPatient">Ajouter un Patient</a><br>
-<a href="supprimierPatient">Supprimier un Patient</a>
+<body> 
+<span th:text="#{lang.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="fr" th:text="#{lang.fr}"></option>
+    <option value="ar" th:text="#{lang.ar}"></option>
+</select>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#locales").change(function () {
+        var selectedOption = $('#locales').val();
+        if (selectedOption != ''){
+            window.location.replace('http://localhost:8080/afficherListPatient?lang=' + selectedOption);
+        }
+    });
+});
+</script>
+<!-- <div th:include="~{/resources/AdminLTE-3.0.5/index :: #search}"></div> -->
+<h1 th:text="#{lsP}">Liste des patients</h1>
+<a href="afficherListTraitement" th:text="#{lsT}"></a><br>
+<a href="ajouterPatient" th:text="#{AunP}"></a><br>
+<a href="supprimierPatient" th:text="#{SunP}"></a>
 <br>
 <br>
-<div>
-<table border="1">
-<tr><th>nom</th><th>prenom</th><th>sexe</th><th>date_naissance</th><th>numero_telephone</th><th>adresse</th></tr>
-<tr th:each ="p :${liste}">
+<div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap" border="1">
+                  <thead>
+                    <tr><th th:text="#{nm}"></th><th th:text="#{pm}"></th><th th:text="#{sx}"></th><th th:text="#{dn}"></th><th th:text="#{nrm}"></th><th th:text="#{ad}"></th></tr>
+                  </thead>
+                  <tbody>
+					<tr th:each ="p :${liste}">
 <td th:utext ="${p.nom}"></td><td th:utext ="${p.prenom}"></td><td th:utext ="${p.sexe}"></td><td th:utext ="${p.dateNaissance}"></td>
-<td th:utext ="${p.numeroTelephone}"></td><td th:utext ="${p.adresse}"></td>
-</table>
-</div>
+<td th:utext ="${p.numeroTelephone}"></td><td th:utext ="${p.adresse}"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+<!-- <div th:include="~{/AdminLTE-3.0.5/index :: #Copyright}"></div> -->
+<div th:include="~{/AdminLTE-3.0.5/index :: #Version}"></div>
 </body>
 </html>
+

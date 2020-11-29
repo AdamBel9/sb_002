@@ -1,17 +1,28 @@
 package dz.ibnrochd.master14.view;
 
 import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import dz.ibnrochd.master14.business.IConsultationService;
 import dz.ibnrochd.master14.business.IPatientService;
@@ -29,6 +40,9 @@ public class ViewController {
 	private  IConsultationService iConsultationService ;
 	@Autowired
 	private ITraitementService iTraitement ;
+	
+	  @Autowired private MessageSource messageSource ;
+	 
 
 	//@Value ("${error.message}")
 	//private String messageErreur ;
@@ -37,8 +51,17 @@ public class ViewController {
 	
 	//Patient
 	//Display List of Patient
+	
+	/*
+	 * @GetMapping (path= {"/afficherListPatient"}) public String
+	 * afficherListPatient(@RequestHeader(name="fr",required=false) Locale locale) {
+	 * return messageSource.getMessage("lsP",null, locale); }
+	 */
+	 
+	  
+	 
 	@RequestMapping (value = {"/afficherListPatient"},method = RequestMethod.GET)
-	public String afficherListPatient(Model model) {
+	public String afficherListPatient1(Model model) {
 		model.addAttribute("liste",iPatientService.listToutPatient() );
 		return "afficherListPatient";
 	}
@@ -133,5 +156,5 @@ public class ViewController {
 			 return "afficherListTraitement";
 		 }
 	 }
-
+		
 }

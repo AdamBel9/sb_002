@@ -60,45 +60,42 @@ public class ViewController {
 	 
 	  
 	 
-	@RequestMapping (value = {"/afficherListPatient"},method = RequestMethod.GET)
-	public String afficherListPatient1(Model model) {
-		model.addAttribute("liste",iPatientService.listToutPatient() );
-		return "afficherListPatient";
-	}
+	/*
+	 * @RequestMapping (value = {"/afficherListPatient"},method = RequestMethod.GET)
+	 * public String afficherListPatient1(Model model) {
+	 * model.addAttribute("liste",iPatientService.listToutPatient() ); return
+	 * "afficherListPatient"; }
+	 */
 	
 	//Add patient
-	@RequestMapping (value = {"/ajouterPatient"},method = RequestMethod.GET)
-	  public String ajouterPatient(Model model) {
-		model.addAttribute("patient", new Patient());
-		return "ajouterPatient";
-	  }
-	@RequestMapping (value = {"/ajouterPatient"},method = RequestMethod.POST)
-	public String ajouterPatient1(Model model,@ModelAttribute ("patient") Patient patient) {
-		try {
-			iPatientService.creePatient(patient); return "redirect:/ajouterPatient";
-		}catch (Exception ex) {
-			model.addAttribute("messageErreur", ex.getMessage()); 
-			return "ajouterPatient";
-		}
-		
+	/*
+	 * @RequestMapping (value = {"/ajouterPatient"},method = RequestMethod.GET)
+	 * public String ajouterPatient(Model model) { model.addAttribute("patient", new
+	 * Patient()); return "ajouterPatient"; }
+	 * 
+	 * @RequestMapping (value = {"/ajouterPatient"},method = RequestMethod.POST)
+	 * public String ajouterPatient1(Model model,@ModelAttribute ("patient") Patient
+	 * patient) { try { iPatientService.creePatient(patient); return
+	 * "redirect:/ajouterPatient"; }catch (Exception ex) {
+	 * model.addAttribute("messageErreur", ex.getMessage()); return
+	 * "ajouterPatient"; }
+	 */
 	//Delete patient 
-	}
 	
-	  @RequestMapping (value = {"/supprimierPatient"},method = RequestMethod.GET)
-	  public String supprimierPatient(Model model) {
-	  model.addAttribute("liste",iPatientService.listToutPatient() ); return
-	  "supprimierPatient";
-	}
-	 @RequestMapping (value = {"/supprimierPatient"},method = RequestMethod.POST)
-	  public String supprimierPatient1(@RequestParam int id) { 
-		 try { iPatientService.supprimerPatient(id); 
-		 return  "redirect:/afficherListPatient";
-		 
-		 }catch(Exception ex) 
-		 { 
-			 return ex.getMessage(); } 	 
-	 }
-		/*
+	
+	/*
+	 * @RequestMapping (value = {"/supprimierPatient"},method = RequestMethod.GET)
+	 * public String supprimierPatient(Model model) {
+	 * model.addAttribute("liste",iPatientService.listToutPatient() ); return
+	 * "supprimierPatient"; }
+	 */
+	/*
+	 * @RequestMapping (value = {"/supprimierPatient"},method = RequestMethod.POST)
+	 * public String supprimierPatient1(@RequestParam int id) { try {
+	 * iPatientService.supprimerPatient(id); return "redirect:/afficherListPatient";
+	 * 
+	 * }catch(Exception ex) { return ex.getMessage(); } }
+	 */		/*
 		 * @RequestMapping (value = {"/misAJourPatient"}, method = RequestMethod.GET)
 		 * public String modifierPatient(Model model) { model.addAttribute("liste",
 		 * iTraitement.listTraitement()); return "misAJourPatient1" ; }
@@ -116,45 +113,37 @@ public class ViewController {
 	 
 	 ////////////////////////////////////////////////////////////////////////////////
 	 
-	 //Display Treatment
-	 @RequestMapping (value = {"/afficherListTraitement"},method = RequestMethod.GET)
-	 public String afficherTaitement(Model model) {
-		 model.addAttribute("listeT", iTraitement.listTraitement());
-		 return "afficherListTraitement";	 
-	 }
-	 //Add treatment
-	 @RequestMapping (value = {"/ajouterTraitement"}, method = RequestMethod.GET)
-      public String ajouterTraitement(Model model) {
-		 model.addAttribute("traitement", new Traitement());
-		 return "ajouterTraitement";  
-      }
-	 @RequestMapping (value = {"/ajouterTraitement"}, method = RequestMethod.POST)
-	 public String ajouterTraitement1(Model model ,@ModelAttribute Traitement traitement) {
-		 try {
-			 iTraitement.creeTraitement(traitement);
-			 return "redirect:/ajouterTraitement";
-		 }catch (Exception ex) {
-			  String messageErreur =ex.getMessage();
-			  model.addAttribute("messageErreur", messageErreur);
-			 return "ajouterTraitement";
-		 }
-	 }
-	 //Delete treatment
-	 @RequestMapping (value = {"/supprimierTraitement"}, method = RequestMethod.GET)
-     public String suppriemerTraitement(Model model) {
-		 model.addAttribute("traitement", iTraitement.listTraitement());
-		 return "supprimierTraitement";  
-     }
-	 @RequestMapping (value = {"/supprimierTraitement"}, method = RequestMethod.POST)
-	 public String suppriemerTraitement(Model model ,@RequestParam (name="id") int id) { //@ModelAttribute Traitement traitement
-		 try {
-			 iTraitement.supprimierTraitement(id);;
-			 return "redirect:/afficherListTraitement";
-		 }catch (Exception ex) {
-			 String messageErreur =ex.getMessage();
-			  model.addAttribute("messageErreur", messageErreur);
-			 return "afficherListTraitement";
-		 }
-	 }
-		
+		/*
+		 * //Display Treatment
+		 * 
+		 * @RequestMapping (value = {"/afficherListTraitement"},method =
+		 * RequestMethod.GET) public String afficherTaitement(Model model) {
+		 * model.addAttribute("listeT", iTraitement.listTraitement()); return
+		 * "afficherListTraitement"; } //Add treatment
+		 * 
+		 * @RequestMapping (value = {"/ajouterTraitement"}, method = RequestMethod.GET)
+		 * public String ajouterTraitement(Model model) {
+		 * model.addAttribute("traitement", new Traitement()); return
+		 * "ajouterTraitement"; }
+		 * 
+		 * @RequestMapping (value = {"/ajouterTraitement"}, method = RequestMethod.POST)
+		 * public String ajouterTraitement1(Model model ,@ModelAttribute Traitement
+		 * traitement) { try { iTraitement.creeTraitement(traitement); return
+		 * "redirect:/ajouterTraitement"; }catch (Exception ex) { String messageErreur
+		 * =ex.getMessage(); model.addAttribute("messageErreur", messageErreur); return
+		 * "ajouterTraitement"; } } //Delete treatment
+		 * 
+		 * @RequestMapping (value = {"/supprimierTraitement"}, method =
+		 * RequestMethod.GET) public String suppriemerTraitement(Model model) {
+		 * model.addAttribute("traitement", iTraitement.listTraitement()); return
+		 * "supprimierTraitement"; }
+		 * 
+		 * @RequestMapping (value = {"/supprimierTraitement"}, method =
+		 * RequestMethod.POST) public String suppriemerTraitement(Model model
+		 * ,@RequestParam (name="id") int id) { //@ModelAttribute Traitement traitement
+		 * try { iTraitement.supprimierTraitement(id);; return
+		 * "redirect:/afficherListTraitement"; }catch (Exception ex) { String
+		 * messageErreur =ex.getMessage(); model.addAttribute("messageErreur",
+		 * messageErreur); return "afficherListTraitement"; } }
+		 */
 }

@@ -40,9 +40,11 @@ $(document).ready(function() {
 					<tr th:each ="p :${liste}">
 <td th:utext ="${p.nom}"></td><td th:utext ="${p.prenom}"></td><td th:utext ="${p.sexe}"></td><td th:utext ="${p.dateNaissance}"></td>
 <td th:utext ="${p.numeroTelephone}"></td><td th:utext ="${p.adresse}"></td></tr>
+
                   </tbody>
                 </table>
               </div>
+              <br>
 <!-- <div th:include="~{/AdminLTE-3.0.5/index :: #Copyright}"></div> -->
 <div th:include="~{/AdminLTE-3.0.5/index :: #Version}"></div>
 </body>

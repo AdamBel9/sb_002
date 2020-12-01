@@ -2,6 +2,7 @@ package dz.ibnrochd.master14.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,10 @@ public class PatientService implements IPatientService{
 	  //Read patient
 	  public List<Patient> listToutPatient(){
 		  return patientRepository.findAll();
+		  
+	  }
+	  public Patient patientId(int id ) {
+		  return  patientRepository.findById(id);
 		  
 	  }
 	  

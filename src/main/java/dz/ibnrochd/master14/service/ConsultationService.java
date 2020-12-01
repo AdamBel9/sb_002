@@ -31,7 +31,7 @@ public class ConsultationService implements IConsultationService{
 	
 	  public Consultation creeConsultation(int id, String motif, Date
 	  dateConsultation, int idPatient) {
-		  Patient patient = patientRepository.findById(idPatient).orElseThrow(()->new RuntimeException("Patient does not exist"));
+		  Patient patient = patientRepository.findById(idPatient);
 	  return consultationRepository.save(new Consultation (id , motif ,dateConsultation,patient));
 	
 	  

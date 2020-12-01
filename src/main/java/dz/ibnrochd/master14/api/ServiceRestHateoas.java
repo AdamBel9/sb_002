@@ -73,49 +73,39 @@ public class ServiceRestHateoas {
 			 URI chemin = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pat.getId()).toUri();
 		 return ResponseEntity.created(chemin).build();
 		 }
-		/*
-		 * @PostMapping (value = {"/api/patients"}) public ResponseEntity<Object>
-		 * ajouterPatient1( @RequestBody Patient patient) { Patient pat
-		 * =iPatientService.creePatient(patient); return new
-		 * ResponseEntity<>("Patient created with sucess!",HttpStatus.CREATED);
-		 * 
-		 * }
-		 * 
-		 * 
-		 * 
-		 * 
-		 * //Delete a patient
-		 * 
-		 * @RequestMapping (value = {"/api/patients/{id}"},method =
-		 * RequestMethod.DELETE) public void supprimierPatient(@PathVariable("id") int
-		 * id) { iPatientService.supprimerPatient(id);
-		 * 
-		 * }
-		 * 
-		 * //Treatment
-		 * 
-		 * //Create a treament
-		 * 
-		 * @RequestMapping (value = {"/api/traitments"},method = RequestMethod.GET)
-		 * public ResponseEntity<Object> afficherTaitement() { List<Traitement> listeT =
-		 * iTraitmentService.listTraitement(); return new ResponseEntity<>(listeT ,
-		 * HttpStatus.OK) ; }
-		 * 
-		 * //Add a treatment
-		 * 
-		 * @RequestMapping (value = {"/api/traitments"}, method = RequestMethod.POST)
-		 * public ResponseEntity<Object> ajouterTraitement1(@RequestBody Traitement
-		 * traitement) { iTraitmentService.creeTraitement(traitement); return new
-		 * ResponseEntity<>("Add treatment sucess!" , HttpStatus.CREATED); }
-		 * 
-		 * //Delete a treatment
-		 * 
-		 * @RequestMapping (value = {"/api/traitments/{id}"}, method =
-		 * RequestMethod.DELETE) public ResponseEntity<Object>
-		 * suppriemerTraitement(@PathVariable("id") int id) {
-		 * iTraitmentService.supprimierTraitement(id); return new
-		 * ResponseEntity<>("Treatment deleted by sucess !!", HttpStatus.OK);
-		 * 
-		 * }
-		 */
+		
+		  //Delete a patient
+		  
+		  @RequestMapping (value = {"/api/patients/{id}"},method = RequestMethod.DELETE) 
+		  public void supprimierPatient(@PathVariable("id") int id) { 
+			  iPatientService.supprimerPatient(id);
+		  
+		  }
+		  
+		  //Treatment
+		  
+		  //Create a treament
+		  
+		  @RequestMapping (value = {"/api/traitments"},method = RequestMethod.GET)
+		  public ResponseEntity<Object> afficherTaitement() { List<Traitement> listeT =
+		  iTraitmentService.listTraitement(); return new ResponseEntity<>(listeT ,
+		  HttpStatus.OK) ; }
+		  
+		  //Add a treatment
+		  
+		  @RequestMapping (value = {"/api/traitments"}, method = RequestMethod.POST)
+		  public ResponseEntity<Object> ajouterTraitement1(@RequestBody Traitement
+		  traitement) { iTraitmentService.creeTraitement(traitement); return new
+		  ResponseEntity<>("Add treatment sucess!" , HttpStatus.CREATED); }
+		  
+		  //Delete a treatment
+		  
+		  @RequestMapping (value = {"/api/traitments/{id}"}, method =
+		  RequestMethod.DELETE) public ResponseEntity<Object>
+		  suppriemerTraitement(@PathVariable("id") int id) {
+		  iTraitmentService.supprimierTraitement(id); return new
+		  ResponseEntity<>("Treatment deleted by sucess !!", HttpStatus.OK);
+		  
+		  }
+		 
 	}

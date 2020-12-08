@@ -30,7 +30,7 @@ public class ConsultationService implements IConsultationService{
 	//Method 
 	public Consultation creeConsultation(int id, String motif, Date dateConsultation, Patient patient) {
 		
-		Patient  pat= patientRepository.findByPatient(patient);
+		Patient  pat= patientRepository.findById(patient.getId);
 		return consultationRepository.save(new Consultation(id ,motif , dateConsultation ,pat));
 		
 	}
